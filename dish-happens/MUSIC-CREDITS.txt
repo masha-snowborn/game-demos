@@ -1,0 +1,18 @@
+Music by Kevin MacLeod (incompetech.com)
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+
+The Builder — ISRC USUAN1400016
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400016
+Gameplay: loudness matching, a beat-aligned 58-bar loop and pitch-preserved tempo changes synchronized to the character's steps. No introductory volume duck.
+
+Disco Medusae — ISRC USUAN1500041
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1500041
+Win celebration: excerpt, loudness matching and a beat-aligned 32-beat loop at the original 115 BPM. Manny's hip dance and the disco lights follow its media clock.
+
+Sad Trio — ISRC USUAN1100089
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100089
+Loss aftermath: excerpt, loudness matching and a gentle loop, played quietly behind the original supplied voice.
+
+These recordings are edited for the Dish Happens local prototype. The author does not endorse this demo.
+The cash-register cue is an original synthesized effect; supplied plate/voice recordings are retained separately.

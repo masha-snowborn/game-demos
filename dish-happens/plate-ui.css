@@ -1,0 +1,411 @@
+/* Oval restaurant serving platters above the Balance / Win / Bet strip. */
+.game-layout {
+  --plate-width: clamp(168px, 15vw, 218px);
+  --plate-height: calc(var(--plate-width) * .60);
+  --plate-gap: 18px;
+  --plate-edge: 22px;
+  --hud-height: 64px;
+  --menu-font: Baskerville, 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  position: relative;
+  gap: 0;
+}
+
+.controls {
+  position: static;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(145px, 1.1fr);
+  align-items: center;
+  column-gap: 20px;
+  row-gap: 0;
+  width: 100%;
+  height: var(--hud-height);
+  min-height: var(--hud-height);
+  padding: 8px 20px;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, #352b1c, #181910 80%);
+  border-color: #a17b43a8;
+  box-shadow: inset 0 1px 0 #d0a75d59;
+}
+.controls .wallet,
+.controls .win-box,
+.controls .bet-area {
+  position: relative;
+  grid-row: 1;
+  align-self: center;
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.controls .wallet { grid-column: 1; }
+.controls .win-box { grid-column: 2; display: block; }
+.controls .bet-area { grid-column: 3; }
+.controls .win-box::before,
+.controls .bet-area::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(transparent, #b38d4c9c 20%, #b38d4c9c 80%, transparent);
+}
+.controls .wallet > .tiny-label,
+.controls .win-box > .tiny-label,
+.controls .bet-area > label {
+  display: block;
+  color: #d0cec5;
+  font-family: var(--menu-font);
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .65px;
+  white-space: nowrap;
+}
+.controls .wallet > div,
+.controls .win-box > div {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 5px 0 0;
+  min-width: 0;
+  line-height: 1;
+}
+.controls .wallet #balance,
+.controls .win-box #win,
+.controls .win-box > div {
+  font-family: var(--menu-font);
+  color: var(--sbg-value, #ffe577);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  font-variant-numeric: tabular-nums;
+}
+.controls .credit-label,
+.controls .win-box small,
+.controls .bet-area > label > span {
+  font-family: var(--font);
+  color: #b8b4a4;
+  font-size: 7px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+  margin: 0;
+}
+.controls .bet-area > label > span { margin-left: 3px; }
+.controls .bet-input {
+  height: 34px;
+  margin: 4px 0 0;
+  border: 1px solid #ad854b99;
+  border-radius: 999px;
+  background: #0000004d;
+}
+.controls .bet-input button {
+  flex: 0 0 32px;
+  width: 32px;
+  min-width: 32px;
+  padding: 0;
+  font-size: 19px;
+  line-height: 1;
+}
+.controls .bet-input input {
+  min-width: 0;
+  height: 100%;
+  font-family: var(--menu-font);
+  color: var(--sbg-value, #ffe577);
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -.02em;
+  padding: 0 2px;
+}
+.controls .wallet-caption,
+.controls .presets,
+.controls .control-hint,
+.controls .next-step,
+.controls .hud-brandline { display: none; }
+.controls .error:empty { display: none; }
+.controls .error:not(:empty) {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: calc(100% + 8px);
+  min-height: 0;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 40px));
+  padding: 9px 12px;
+  color: #fff3eb;
+  background: #7d302bea;
+  border: 1px solid #c88879;
+  border-radius: 9px;
+  box-shadow: 0 5px 18px #00000025;
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+/* One semantic action, printed on a silver serving platter. */
+#release {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--plate-width);
+  min-width: 0;
+  height: var(--plate-height);
+  min-height: var(--plate-height);
+  padding: 14px 28px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: none;
+  color: #264b3e;
+  font-family: var(--menu-font);
+  font-size: 25px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  text-align: center;
+  isolation: isolate;
+  touch-action: manipulation;
+  transition: transform .15s ease, filter .15s ease;
+}
+#release::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+#release > .action-label {
+  position: relative;
+  display: block;
+  z-index: 1;
+  max-width: 78%;
+  color: inherit;
+  font: inherit;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+#release:hover:not(:disabled) { transform: translateY(-2px); }
+#release:active:not(:disabled) { transform: translateY(1px) scale(.985); }
+#release:focus-visible { outline: 3px solid #173f38; outline-offset: 4px; }
+.stage-logo,
+body.is-active .stage-logo {
+  top: auto;
+  bottom: 22px;
+  left: 22px;
+  width: 176px;
+  height: 118px;
+}
+.stage-top .live-label { display: none; }
+
+/* The result is a small restaurant plaque, clear of the landing and controls. */
+.scene-message {
+  left: auto;
+  right: var(--plate-edge);
+  top: 64px;
+  bottom: auto;
+  transform: none;
+  min-width: 235px;
+  width: min(290px, 32%);
+  max-width: calc(100% - 36px);
+  padding: 16px 20px 26px;
+  border: 1px solid #e1b85e;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #334e40, #152c25 85%);
+  box-shadow: inset 0 0 0 3px #18362c, inset 0 0 0 4px #af874b, 0 5px 10px #32220d35;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.scene-message > span:first-child {
+  margin-bottom: 6px;
+  font-family: var(--menu-font);
+  color: #f2db9e;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+}
+.scene-message strong,
+.scene-message.caught strong {
+  font-family: 'Subtle Curves', sans-serif;
+  color: #ffe195;
+  font-size: clamp(30px, 3.1vw, 44px);
+  line-height: 1.05;
+  letter-spacing: .02em;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+.scene-message.lost strong {
+  font-family: var(--menu-font);
+  font-size: 28px;
+  font-style: italic;
+  color: #ffe0be;
+  letter-spacing: -.5px;
+}
+.scene-message > span:last-child {
+  color: #e2d6b3;
+  margin-top: 7px;
+  font-size: 9px;
+  line-height: 1.35;
+}
+.scene-message::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  width: 104px;
+  height: 10px;
+  margin: auto;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 10'%3E%3Cg fill='none' stroke='%23d9b666' stroke-width='1'%3E%3Cpath d='M1 5h32m38 0h32M52 1l5 4-5 4-5-4ZM39 2c5-2 7 6 2 6s-5-4-2-6Zm26 0c-5-2-7 6-2 6s5-4 2-6Z'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Keep the prototype in one game frame, with utility buttons over the scene. */
+.shell { position: relative; padding-top: 12px; padding-bottom: 12px; }
+.shell > header {
+  position: absolute;
+  z-index: 8;
+  top: 24px;
+  right: 25px;
+  height: 32px;
+  border: 0;
+}
+.shell > header .brand,
+.shell > header .header-tag,
+.shell > header .demo,
+.intro,
+.history-section,
+main > footer { display: none; }
+.shell > header .header-actions { gap: 6px; }
+.shell > header .icon-button {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  width: 31px;
+  height: 31px;
+  background: #243c31ed;
+  color: #fff3d3;
+  border: 1px solid #d1ad6999;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  box-shadow: 0 2px 4px #36240f26;
+}
+.shell > header .icon-button:hover { background: #3d5844; }
+.shell > header .icon-button svg { display: block; width: 18px; height: 18px; margin: 0; }
+.shell > header #sound::before,
+.shell > header #rules-open::before { display: none; }
+.shell > header #sound svg { display: block; }
+.stage-top { top: 13px; right: 88px; left: 13px; bottom: auto; justify-content: flex-end; }
+.stage-number {
+  padding: 7px 11px;
+  border: 1px solid #d1ad697a;
+  border-radius: 999px;
+  background: #243c31ed;
+  color: #fff3d3;
+  font-size: 8px;
+  line-height: 15px;
+  letter-spacing: 1.5px;
+}
+.stage { border-color: #a17b43a8; }
+
+@media (min-width: 761px) {
+  .shell {
+    max-width: min(1500px, calc((100svh - 88px) * 1.777778 + 24px));
+    padding-inline: 12px;
+  }
+  .stage { height: auto; min-height: 0; aspect-ratio: 16 / 9; }
+}
+
+@media (max-width: 760px) {
+  .game-layout {
+    --plate-width: 110px;
+    --plate-height: 72px;
+    --plate-gap: 12px;
+    --plate-edge: 14px;
+    --hud-height: 64px;
+  }
+  .controls {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(114px, 1.2fr);
+    column-gap: 9px;
+    padding: 8px 12px;
+    border-radius: 0 0 13px 13px;
+  }
+  .controls .win-box::before,
+  .controls .bet-area::before { left: -5px; }
+  .controls .wallet #balance,
+  .controls .win-box #win,
+  .controls .win-box > div { font-size: 21px; letter-spacing: -.025em; }
+  .controls .bet-input { height: 34px; }
+  .controls .bet-input button { flex-basis: 29px; width: 29px; min-width: 29px; }
+  .controls .bet-input input { font-size: 21px; }
+  #release{
+    bottom: calc(var(--hud-height) + 11px);
+    gap: 0;
+    padding: 17px 12px;
+    font-size: 14px;
+  }
+  .stage-logo,
+  body.is-active .stage-logo { top: auto; bottom: 17px; left: 14px; width: 94px; height: 63px; }
+  #release::after{ inset: 11px 13px; }
+  #release > span:first-child::before,
+  #release > span:first-child::after{ width: 43px; height: 9px; }
+  #release > span:first-child::before{ top: -14px; }
+  #release > span:first-child::after{ bottom: -14px; }
+  .scene-message {
+    left: auto;
+    right: 14px;
+    top: auto;
+    bottom: calc(var(--plate-height) + 24px);
+    min-width: 190px;
+    width: 210px;
+    max-width: calc(100% - 28px);
+    transform: none;
+    padding: 10px 15px 21px;
+  }
+  .scene-message strong,
+  .scene-message.caught strong { font-size: 26px; }
+  .scene-message.lost strong { font-size: 24px; }
+  .scene-message > span:first-child { font-size: 8px; }
+  .scene-message > span:last-child { display: none; }
+  .shell { padding: 9px; }
+  .shell > header { top: 22px; right: 22px; }
+  .stage { height: calc(100svh - 82px); min-height: 480px; max-height: 780px; }
+}
+@media (orientation: landscape) and (max-height: 600px) {
+  .shell { max-width: 1500px; padding: 8px; }
+  .stage { height: calc(100svh - 80px); min-height: 220px; max-height: none; aspect-ratio: auto; }
+  .shell > header { top: 17px; right: 19px; }
+  .stage-top { top: 9px; right: 84px; }
+  .game-layout { --plate-width: 132px; --plate-height: clamp(34px, calc((100svh - 80px) * .18), 76px); --plate-edge: 14px; --plate-gap: 12px; }
+  #release{ bottom: calc(var(--hud-height) + 12px); padding: 8px 10px; font-size: 14px; }
+  .scene-message { top: 52px; bottom: auto; width: 220px; min-width: 190px; padding: 11px 16px 21px; }
+  .scene-message strong, .scene-message.caught strong { font-size: 29px; }
+  .scene-message.lost strong { font-size: 23px; }
+  .scene-message > span:last-child { display: none; }
+  .stage-logo, body.is-active .stage-logo { left: 16px; bottom: 16px; width: 82px; height: 55px; }
+}
+@media (max-width: 389px) {
+  .game-layout { --plate-width: 101px; --plate-height: 68px; --plate-gap: 10px; --plate-edge: 12px; }
+  .stage-logo,
+  body.is-active .stage-logo { width: 92px; height: 61px; bottom: 18px; left: 12px; }
+}
+@media (max-width: 359px) {
+  .game-layout { --plate-width: 99px; --plate-height: 68px; --plate-gap: 11px; --plate-edge: 12px; }
+  .stage-logo,
+  body.is-active .stage-logo { left: 12px; width: 68px; height: 45px; bottom: 24px; }
+  .controls { padding-inline: 9px; column-gap: 6px; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) minmax(109px, 1.2fr); }
+  .controls .wallet #balance,
+  .controls .win-box #win,
+  .controls .win-box > div { font-size: 19px; }
+  .controls .credit-label,
+  .controls .win-box small { display: none; }
+  #release{ font-size: 13px; padding-inline: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #release{ transition: none; }
+  #release:hover:not(:disabled){ transform: none; }
+}

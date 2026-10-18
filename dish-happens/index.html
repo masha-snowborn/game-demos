@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#100f0b">
+<title>Dish Happens — Combined Preview</title>
+<meta name="description" content="Dish Happens combined review: uniform plates, carefully set round tables and a deliberate supported step. A virtual-credit game based on the BottleStairs mathematical model.">
+<link rel="preload" href="assets/snowborn/subtle-curves.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="style.css?v=7"><link rel="stylesheet" href="restaurant-theme.css?v=5"><link rel="stylesheet" href="splash.css?v=cv4"><link rel="stylesheet" href="snowborn-ui.css?v=5"><link rel="stylesheet" href="plate-ui.css?v=9"><link rel="stylesheet" href="serving-ui.css?v=cv11">
+</head>
+<body>
+<div class="shell">
+<header>
+  <a class="brand brand-wordmark" href="#" data-open-welcome aria-label="Dish Happens home"><span>DISH<br>HAPPENS</span></a>
+  <div class="header-tag"><i></i> ONE STEP FROM DISASTER</div>
+  <div class="header-actions"><span class="demo">DEMO</span><button id="sound" class="icon-button" aria-label="Turn sound on" aria-pressed="false" title="Sound"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4Z"/><path id="sound-wave" d="m16 9 6 6m0-6-6 6"/></svg></button><button id="rules-open" class="icon-button" aria-label="Game rules" title="Paytable and game rules"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 7.5h8M8 11.5h2m4 0h2M8 15.5h2m4 0h2"/></svg></button></div>
+</header>
+<main>
+  <section class="intro"><div><p class="eyebrow">DISH HAPPENS · A DELICATE DINNER</p><h1>One more table<span> — what could go wrong?</span></h1></div><p class="intro-note">A banquet hall. A very full tray.<br>Catch him before dinner hits the floor.</p></section>
+  <div class="game-layout">
+    <section class="stage" aria-label="Banquet tables">
+      <button type="button" class="stage-logo" data-open-welcome aria-label="Show welcome screen"><img src="assets/dish-happens-logo-manny-v2.png" alt="Dish Happens" width="128" height="85"></button>
+      <div class="stage-top"><div class="live-label"><i id="live-dot"></i><span id="scene-status">READY TO SERVE</span></div><span class="stage-number" id="step-counter">STEP 00</span></div>
+      <div class="multiplier-area" hidden aria-hidden="true"><span class="tiny-label" id="mult-label">CURRENT MULTIPLIER</span><div id="multiplier">1.00<span>×</span></div><p id="scene-hint">Every step is another chance.</p></div>
+      <canvas id="scene" aria-label="A waiter balancing plates above moving banquet tables"></canvas>
+      <div class="scene-message" id="scene-message"><span id="message-tag"></span><strong id="message-title"></strong><span id="message-detail"></span></div>
+      <div class="stage-bottom"><span><span class="mini-star">✳</span> DINNER IS ALMOST SERVED</span><span>MAX. <b>1,000×</b></span></div>
+    </section>
+    <aside class="controls" aria-label="Game controls">
+      <div class="wallet"><span class="tiny-label">BALANCE</span><div><span id="balance">1,000.00</span><span class="credit-label">CR</span></div><span class="wallet-caption"><i></i> Virtual credits</span></div>
+      <div class="bet-area"><label for="stake" class="tiny-label">BET <span>CR</span></label><div class="bet-input"><button id="minus" aria-label="Decrease bet">−</button><input id="stake" type="number" min="1" max="1000000" step="1" value="10" inputmode="numeric" aria-describedby="bet-error"><button id="plus" aria-label="Increase bet">+</button></div><div class="presets"><button data-stake="10" class="selected">10</button><button data-stake="25">25</button><button data-stake="50">50</button><button data-stake="100">100</button></div><span id="bet-error" class="error" role="status"></span></div>
+      <div class="win-box"><span class="tiny-label" id="win-label">WIN</span><div><span id="win">0.00</span><small>CR</small></div></div>
+      <button class="primary single-action" id="release" type="button" data-mode="start" aria-label="Let's roll"><span class="action-label">Let's roll</span></button>
+      <p class="control-hint" id="control-hint">Cash out after the first<br>safe landing.</p>
+      <div class="next-step"><div><span class="tiny-label">NEXT STEP</span><b id="next-mult">1.10×</b></div><div class="risk-track"><span id="risk-bar"></span></div><p><span>Safe landing chance</span><b id="next-chance">89.09%</b></p></div>
+      <div class="hud-brandline"><span>DISH HAPPENS™</span><span class="snowborn-studio" role="img" aria-label="Snowborn"><img src="assets/snowborn/snow.png" alt="" width="61" height="20"><img src="assets/snowborn/born.png" alt="" width="54" height="20"></span></div>
+    </aside>
+  </div>
+  <section class="history-section" aria-label="Round history"><div class="history-heading"><h2>Recent runs</h2><span>Every dinner has a story</span></div><div id="history" class="history"><div class="history-empty"><span>↘</span> Your runs will appear here.</div></div></section>
+  <footer><span>Based on the original BottleStairs mathematics</span><div><span>RTP <b>98%</b></span><span>GROWTH <b>10%</b></span><button id="math-open">How it works <span>↗</span></button></div></footer>
+</main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<dialog id="rules"><div class="dialog-header"><span class="eyebrow">DISH HAPPENS / GAME RULES</span><button id="rules-close" class="icon-button" aria-label="Close rules">×</button></div><h2>Catch the moment.<br><em>Save the dinner.</em></h2><ol><li><strong>Let him roll.</strong> Each run deducts your bet. Manny steadies his plates, then skates and steps across the banquet tables. Each safe landing quickens the movement and background music.</li><li><strong>Watch your step.</strong> Each safe landing raises the multiplier. A table can collapse on the first transfer. A fall pays zero. Your bet × the multiplier printed on the cloth determines the round payout.</li><li><strong>Cash out.</strong> After the first safe landing, you can cash out even while Manny is stepping. Your bet × the last reached multiplier determines the payout. Cash out closes when the round ends.</li></ol><div class="dialog-math"><h3>The original game's mathematics</h3><p>RTP: <b>98%</b> · growth: <b>10%</b> · maximum: <b>1,000×</b></p><p>Multipliers use integer hundredths: q₀ = 100,<br>qₙ₊₁ = min(100000, ⌈qₙ × 1.10⌉).</p><p>The first-step survival chance is 98 / 110. For subsequent steps it is qₙ / qₙ₊₁. The theoretical return for every permitted completed stopping strategy is therefore 98% of the bet.</p><p>The hidden falling step is chosen when the run starts and revealed at impact. At the maximum multiplier, the payout is automatic. Bets are whole credits from 1 to 1,000,000; payouts use 0.01-credit units.</p><p class="source-note">Source: BottleStairs.dll and .mathproject.json embedded in the supplied application. The formula was ported from the module's IL code. The demo uses the browser's cryptographic random generator; the original RNG sequences are not reproduced.</p></div><p class="music-credit">Music by Kevin MacLeod (incompetech.com): <a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400016" target="_blank" rel="noopener">The Builder</a>, <a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1500041" target="_blank" rel="noopener">Disco Medusae</a> and <a href="https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100089" target="_blank" rel="noopener">Sad Trio</a>. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Edited and looped for this demo.</p><p class="demo-note">Virtual credits only. Balance and recent results are saved in this browser. An active run does not resume after reloading. Space starts a run or cashes out when focus is outside a button or input.</p><button id="reset" class="reset-button">Start fresh with 1,000 CR</button></dialog>
+<script src="math.js?v=cv1"></script><script src="restaurant.js?v=cv18"></script><script src="projectiles.js?v=disco5"></script><script src="waiter.js?v=dance10"></script><script src="audio.js?v=disco5"></script><script src="disco.js?v=disco5"></script><script src="app.js?v=disco5"></script><script src="splash.js?v=cv4"></script>
+</body></html>

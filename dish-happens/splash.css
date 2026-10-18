@@ -1,0 +1,48 @@
+/* A game title screen: logo, welcome line, and one start button. */
+.waiter-welcome { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center; min-height: 100dvh; overflow: auto; overscroll-behavior: contain; isolation: isolate; padding: 30px 24px; color: #fff5dc; background: #21382d; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; }
+.waiter-welcome[hidden] { display: none; }
+.waiter-welcome::before { content: ''; position: absolute; inset: 0; z-index: -2; background: linear-gradient(#17332642, #162d246b), url('assets/restaurant-night-loop-v1.png') center / cover no-repeat; }
+.waiter-welcome::after { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 50% 43%, #132a2200 15%, #132a2230 54%, #0b211ac4 100%); pointer-events: none; }
+.welcome-content { position: relative; display: flex; flex-direction: column; align-items: center; width: min(690px,100%); padding: 0; text-align: center; opacity: 1; visibility: visible; }
+.welcome-art { position: relative; width: min(620px,100%); height: 390px; max-height: 49svh; flex-shrink: 0; margin: 0; pointer-events: none; }
+.welcome-art canvas { display: block; width: 100%; height: 100%; position: absolute; inset: 0; }
+.welcome-a11y-title { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); overflow: hidden; white-space: nowrap; border: 0; }
+.welcome-description { margin: 12px 0 22px; max-width: 570px; color: #fff5df; font-family: Georgia, 'Times New Roman', serif; font-size: 18px; line-height: 1.5; font-weight: 400; text-wrap: balance; text-shadow: 0 2px 8px #102a1f, 0 1px 2px #102a1f; }
+.welcome-description strong { color: #ffe6ab; font-weight: 700; white-space: nowrap; }
+.welcome-order { display: flex; align-items: center; justify-content: space-between; width: 286px; max-width: 100%; height: 56px; padding: 0 23px; margin: 0; border: 1px solid #ffe67b; border-radius: 999px; background: #ffd60a; color: #312709; font: 750 14px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; box-shadow: inset 0 1px 0 #fff7bd, 0 4px 0 #86601d, 0 10px 30px #10271f70; transition: background .15s, transform .15s, box-shadow .15s; }
+.welcome-order > span:last-child { font-size: 24px; font-weight: 400; }
+.welcome-order:hover { background: #ffe34a; transform: translateY(-1px); }
+.welcome-order:active { transform: translateY(3px); box-shadow: inset 0 1px 0 #fff7bd, 0 1px 0 #86601d; }
+.welcome-skip { position: fixed; top: max(20px, env(safe-area-inset-top)); right: max(22px, env(safe-area-inset-right)); z-index: 5; display: grid; place-items: center; width: 35px; height: 35px; padding: 0; border: 1px solid #eee0bd69; border-radius: 50%; background: #18392bd4; color: #ffedc9; font: 25px/1 Arial, sans-serif; }
+.welcome-skip:hover { background: #244d3b; color: #fff; }
+.welcome-order:focus-visible, .welcome-skip:focus-visible { outline: 3px solid #fff0ad; outline-offset: 5px; }
+@media (max-width: 760px) {
+  .waiter-welcome { padding: 28px 18px; }
+  .waiter-welcome::before { background-position: 77% center; }
+  /* Match the canvas box to its cropped logo, so no invisible top gap shifts
+     the visible logo/text/button group below the viewport center. */
+  .welcome-art { width: min(430px,100%,69svh); height: auto; aspect-ratio: 3 / 2; max-height: none; }
+  .welcome-description { max-width: 330px; margin: 11px 0 23px; font-size: 16px; line-height: 1.55; }
+  .welcome-description br { display: none; }
+  .welcome-order { width: 278px; height: 54px; font-size: 13px; }
+  .welcome-skip { top: max(16px, env(safe-area-inset-top)); right: max(17px, env(safe-area-inset-right)); width: 31px; height: 31px; font-size: 23px; }
+}
+@media (max-height: 600px) and (min-width: 761px) {
+  .waiter-welcome { padding-top: 17px; padding-bottom: 21px; }
+  .welcome-art { height: 250px; max-height: 52svh; }
+  .welcome-description { margin-top: 11px; margin-bottom: 17px; font-size: 15px; }
+  .welcome-order { height: 48px; width: 255px; font-size: 13px; }
+}
+@media (max-height: 480px) {
+  .waiter-welcome { padding: 13px 45px 18px; }
+  .welcome-art { width: min(620px,100%); height: 190px; max-height: 52svh; }
+  .welcome-description { max-width: 570px; margin: 9px 0 15px; font-size: 14px; line-height: 1.4; }
+  .welcome-description br { display: none; }
+  .welcome-order { width: 247px; height: 46px; font-size: 12px; }
+  .welcome-order > span:last-child { font-size: 21px; }
+}
+@media (max-width: 350px) and (min-height: 481px) {
+  .welcome-description { font-size: 14px; margin-top: 10px; margin-bottom: 21px; }
+  .welcome-order { width: 255px; height: 51px; }
+}
+@media (prefers-reduced-motion: reduce) { .waiter-welcome *, .waiter-welcome *::before, .waiter-welcome *::after { animation: none !important; transition: none !important; } }

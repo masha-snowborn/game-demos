@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="Play the Dish Happens and Pills & Thrills browser prototypes.">
+  <title>Game Demos — Dish Happens &amp; Pills &amp; Thrills</title>
+  <style>
+    *{box-sizing:border-box}html{color-scheme:light}body{margin:0;background:#f4f1e9;color:#26242b;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}a:focus-visible{outline:3px solid #7650b7;outline-offset:6px}main{max-width:1160px;margin:auto;padding:38px 34px 28px}.topline{display:flex;justify-content:space-between;align-items:center;padding-bottom:24px;border-bottom:1px solid #d6d1c6;font-size:12px;font-weight:650;letter-spacing:.12em;text-transform:uppercase}.mark{display:inline-flex;gap:10px;align-items:center}.mark:before{content:"";width:11px;height:11px;background:#7854a7;border-radius:50%}.topline span:last-child{color:#747077;letter-spacing:.06em}.intro{padding:55px 0 39px}.eyebrow{font-size:11px;font-weight:700;letter-spacing:.17em;color:#716a76;text-transform:uppercase;margin:0 0 15px}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,5.6vw,68px);line-height:1.05;font-weight:400;letter-spacing:-.045em;margin:0 0 20px}.intro p:last-child{font-size:16px;line-height:1.7;color:#69636c;margin:0;max-width:560px}.games{display:grid;grid-template-columns:1fr 1fr;gap:26px}.card{border:1px solid #d8d2c7;border-radius:18px;background:#fffcf6;overflow:hidden;display:flex;flex-direction:column}.art{position:relative;display:grid;place-items:center;aspect-ratio:1.65;overflow:hidden;text-decoration:none}.dish .art{background:radial-gradient(ellipse at 50% 100%,#426154,#142a26 70%)}.pills .art{background:radial-gradient(ellipse at 80% 10%,#e6eec8,transparent 65%),#eee5f3}.art img{width:75%;height:82%;object-fit:contain;filter:drop-shadow(0 9px 10px #0002);transition:transform .2s}.art:hover img{transform:scale(1.035)}.number{position:absolute;left:20px;top:17px;font-size:11px;letter-spacing:.1em;color:#ffffff9c}.pills .number{color:#776782}.content{padding:25px 27px 27px;display:flex;flex:1;flex-direction:column}h2{font-family:Georgia,"Times New Roman",serif;font-size:30px;letter-spacing:-.035em;font-weight:400;margin:0 0 11px}.content p{font-size:14px;line-height:1.75;color:#706973;margin:0 0 24px;max-width:390px}.play{display:flex;justify-content:space-between;align-items:center;background:#263f35;color:#fffdf5;padding:15px 19px;border-radius:9px;text-decoration:none;font-size:14px;font-weight:650;margin-top:auto}.pills .play{background:#674780}.play:hover{filter:brightness(1.12)}.play span{font-size:20px;font-weight:400;line-height:1}.credits{margin-top:15px;display:block;font-size:11px;color:#7a727c;text-underline-offset:3px;align-self:flex-start}footer{margin-top:30px;border-top:1px solid #d6d1c6;padding-top:20px;display:flex;justify-content:space-between;gap:16px;font-size:11px;color:#7d7680;line-height:1.7}footer p{margin:0}@media(max-width:680px){main{padding:24px 20px}.topline{font-size:10px;padding-bottom:19px}.intro{padding:38px 0 30px}h1{font-size:47px}.intro p:last-child{font-size:14px}.games{grid-template-columns:1fr;gap:22px}.art{aspect-ratio:1.7}.content{padding:23px}footer{flex-direction:column;gap:7px}}@media(prefers-reduced-motion:reduce){.art img{transition:none}}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="topline"><span class="mark">Game demos</span><span>Playable prototypes · 01—02</span></header>
+    <section class="intro" aria-labelledby="title">
+      <p class="eyebrow">Choose your next misadventure</p>
+      <h1>One more step.<br>What could go wrong?</h1>
+      <p>Two games, two very different ways to push your luck.<br>Pick a prototype and try the mechanics for yourself.</p>
+    </section>
+    <section class="games" aria-label="Choose a game">
+      <article class="card dish">
+        <a class="art" href="dish-happens/" aria-label="Play Dish Happens"><span class="number">01 / THE RESTAURANT</span><img src="dish-happens/assets/dish-happens-logo-manny-v2.png" alt="Dish Happens" width="1024" height="1024"></a>
+        <div class="content"><h2>Dish Happens</h2><p>A very full tray. A very delicate dinner. Keep the waiter moving, then cash out before the plates come crashing down.</p><a class="play" href="dish-happens/">Play demo <span aria-hidden="true">↗</span></a><a class="credits" href="dish-happens/MUSIC-CREDITS.txt">Music credits</a></div>
+      </article>
+      <article class="card pills">
+        <a class="art" href="pills-and-thrills/" aria-label="Play Pills and Thrills"><span class="number">02 / THE HOSPITAL</span><img src="pills-and-thrills/assets/pills-and-thrills-logo-v4.png" alt="Pills &amp; Thrills" width="1024" height="1024"></a>
+        <div class="content"><h2>Pills &amp; Thrills</h2><p>Granny has places to be. Follow her down the hospital stairs, cash out in time, and discover what one more life looks like.</p><a class="play" href="pills-and-thrills/">Play demo <span aria-hidden="true">↗</span></a><a class="credits" href="pills-and-thrills/MUSIC-CREDITS.txt">Music credits</a></div>
+      </article>
+    </section>
+    <footer><p>Interactive demos · Virtual credits only</p><p>Sound and game rules are available inside each game.</p></footer>
+  </main>
+</body>
+</html>
