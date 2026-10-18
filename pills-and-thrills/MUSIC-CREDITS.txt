@@ -1,0 +1,46 @@
+CURRENT WAITING MUSIC
+“Local Forecast - Elevator” Kevin MacLeod (incompetech.com)
+ISRC USUAN1300012
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300012
+Creative Commons Attribution 4.0: https://creativecommons.org/licenses/by/4.0/
+Edits: 32-bar excerpt, soft loop fades, -25 LUFS normalization, AAC encoding. In-game playback volume .28. Active on splash/ready/revival, replaced by Run Amok for a paid run. Selection details: audio-source/WAITING-SELECTION.json.
+
+CURRENT FALL SELECTION (audition 07)
+“Slide whistle 2” by sheepfilms
+https://freesound.org/people/sheepfilms/sounds/432546/
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+Source phrase 37.8–42.85 seconds, pitch-preserving tempo edit to 4.25 seconds, fades, loudness normalization and AAC encoding. Active file: dist/assets/audio/wild-wobble-whistle-v1.m4a.
+Only this whistle plays during loss; the previous falling orchestra, synthetic mutter and recorded stair contacts are inactive during loss. Original landing-splat-v2 plays separately at 4.25 seconds, then sad-afterlife-v1 begins. Run Amok remains the main theme, now rendered as exact-duration bars in orchestra-beat-locked-v2.m4a to lock every jump to musical beats. Winning Funky Chunk is unchanged. Recorded stair contacts remain available for the released walker on winning.
+
+Pills & Thrills — current music and sound credits
+
+“Run Amok” Kevin MacLeod (incompetech.com)
+ISRC USUAN1400024
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1400024
+Main cartoon orchestra: strings, comic brass, woodwinds and percussion. The progressively accelerating beat-locked main track is active; rhythm-source-v42/ contains the exact-bar generator and beat map. Its former waiting/revival loop and cadence are unused history.
+
+“Le Grand Chase” Kevin MacLeod (incompetech.com)
+ISRC USUAN1800021
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1800021
+Separate falling cue: orchestral brass, piano, percussion, xylophone and comic car horns. Active version orchestra-fast-fall-v2.m4a accelerates across the 4.25-second tumble.
+
+Both licensed under Creative Commons Attribution 4.0:
+https://creativecommons.org/licenses/by/4.0/
+Official source copies: audio-source/run-amok.mp3 and le-grand-chase.mp3.
+Active recorded music: orchestra-beat-locked-v2.m4a and funky-win-v2.m4a; selected loss whistle wild-wobble-whistle-v1.m4a is documented above. Active original aftermath/effects are listed below. The old orchestra wait, fall and tag v1 files are unused history. Edits: trims, pitch-preserving tempo changes, fades and AAC encoding. Generator: make-orchestra-chase.py.
+Earlier recorded/synthesized piano scores are retained only as unused source history.
+
+Original active effects: landing-splat-v2.m4a is a synthesized slap / wet squash and low body impact, triggered at the exact 4.25-second landing. granny-mutter-v1.m4a is original nonverbal formant-based cartoon granny muttering during the tumble. sad-afterlife-v1.m4a is an original slow D-minor piano waltz, rendered from an original score; no raw instrument bank is distributed. Source score and generator are in fall-source-v40/. All effects cancel on mute, tab hide, revival or a new run. The earlier landing-baaam-v1 is unused history.
+
+“Funky Chunk” Kevin MacLeod (incompetech.com)
+https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1500054
+Winning disco. Looped and edited. Creative Commons Attribution 4.0:
+https://creativecommons.org/licenses/by/4.0/
+
+Fall recording: “Falling Down Stairs” by elliott.klein
+https://freesound.org/people/elliott.klein/sounds/194911/
+Creative Commons 0:
+https://creativecommons.org/publicdomain/zero/1.0/
+Public high-quality preview edited into individual tread contacts, one through ten remaining stairs. 4.25-second fall plus a 0.2-second tail; eighteen variants retimed to exact exponential tread contacts. Layered below the orchestral chase and cartoon mutter.
+
+Older unused music and sound versions are retained only as source history; active references are in dist/audio.js.
